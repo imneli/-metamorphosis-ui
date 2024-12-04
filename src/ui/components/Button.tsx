@@ -2,143 +2,126 @@ import React, { forwardRef } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
-/**
- * 🚀 Guia de uso do componente
- * 
- * Variantes de Cor:
- * - color: 'primary' | 'secondary' | 'danger' | 'success'
- * 
- * Estilos de Botão:
- * - variant: 
- *   * 'solid' (fundo colorido)
- *   * 'outline' (borda colorida, fundo transparente)
- *   * 'ghost' (apenas texto colorido)
- * 
- * Tamanhos Disponíveis:
- * - size: 
- *   * 'xs' (extra pequeno)
- *   * 'sm' (pequeno)
- *   * 'md' (médio - padrão)
- *   * 'lg' (grande)
- *   * 'xl' (extra grande)
- * 
- * Opções de Radius (Arredondamento):
- * - radius:
- *   * 'none' (sem arredondamento)
- *   * 'sm' (arredondamento pequeno)
- *   * 'md' (arredondamento médio - padrão)
- *   * 'lg' (arredondamento grande)
- *   * 'xl' (arredondamento extra grande)
- *   * 'full' (totalmente arredondado)
- * 
- * Propriedades Adicionais:
- * - glassEffect: boolean (efeito de vidro)
- * 
- * Exemplos de Uso:
- * <Button>Botão Padrão</Button>
- * <Button color="danger" variant="outline">Botão de Perigo</Button>
- * <Button size="lg" radius="full">Botão Grande Arredondado</Button>
- * <Button glassEffect color="secondary">Botão Vidro</Button>
- * 
- * Todos os atributos de botão HTML padrão também são suportados
- * como onClick, disabled, type, etc.
- */
-
-const COLOR_VARIANTS = {
-  primary: {
-    solid: 'bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-300',
-    outline: 'border border-blue-500 text-blue-500 hover:bg-blue-50 focus:ring-blue-200',
-    ghost: 'text-blue-500 hover:bg-blue-50 focus:ring-blue-200',
-  },
-  secondary: {
-    solid: 'bg-gray-500 text-white hover:bg-gray-600 focus:ring-gray-300',
-    outline: 'border border-gray-500 text-gray-500 hover:bg-gray-50 focus:ring-gray-200',
-    ghost: 'text-gray-500 hover:bg-gray-50 focus:ring-gray-200',
-  },
-  danger: {
-    solid: 'bg-red-500 text-white hover:bg-red-600 focus:ring-red-300',
-    outline: 'border border-red-500 text-red-500 hover:bg-red-50 focus:ring-red-200',
-    ghost: 'text-red-500 hover:bg-red-50 focus:ring-red-200',
-  },
-  success: {
-    solid: 'bg-green-500 text-white hover:bg-green-600 focus:ring-green-300',
-    outline: 'border border-green-500 text-green-500 hover:bg-green-50 focus:ring-green-200',
-    ghost: 'text-green-500 hover:bg-green-50 focus:ring-green-200',
-  },
-  neutral: {
-    solid: 'bg-black text-white hover:bg-black focus:ring-black',
-    outline: 'border border-gray-500 text-gray-500 hover:bg-gray-50 focus:ring-gray-200',
-    ghost: 'text-black hover:bg-black focus:ring-black',
-  }
-};
-
 const buttonVariants = cva(
-  'inline-flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
+  'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none',
   {
     variants: {
       variant: {
         solid: '',
-        outline: '',
-        ghost: '',
+        outline: 'border-2',
+        ghost: 'hover:bg-opacity-10',
+        link: 'underline-offset-4 hover:underline',
       },
       color: {
+        default: '',
         primary: '',
         secondary: '',
         danger: '',
         success: '',
+        warning: '',
       },
       size: {
-        xs: 'px-2 py-1 text-xs',
-        sm: 'px-3 py-1.5 text-sm',
-        md: 'px-4 py-2 text-base',
-        lg: 'px-6 py-3 text-lg',
-        xl: 'px-8 py-4 text-xl',
+        xs: 'h-7 px-2 text-xs',
+        sm: 'h-8 px-3 text-sm',
+        md: 'h-9 px-4 text-base',
+        lg: 'h-10 px-6 text-lg',
+        xl: 'h-12 px-8 text-xl',
       },
-      radius: {
-        none: 'rounded-none',
-        sm: 'rounded-sm',
-        md: 'rounded-md',
-        lg: 'rounded-lg',
-        xl: 'rounded-xl',
-        full: 'rounded-full',
-      }
+      fullWidth: {
+        true: 'w-full',
+        false: '',
+      },
     },
     compoundVariants: [
-      ...Object.entries(COLOR_VARIANTS).flatMap(([color, variants]) => 
-        Object.entries(variants).map(([variant, className]) => ({
-          color,
-          variant,
-          className
-        }))
-      )
+      {
+        variant: 'solid',
+        color: 'default',
+        className: 'bg-gray-900 text-white hover:bg-gray-800 focus-visible:ring-gray-700',
+      },
+      {
+        variant: 'solid',
+        color: 'primary',
+        className: 'bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-500',
+      },
+      {
+        variant: 'solid',
+        color: 'secondary',
+        className: 'bg-gray-600 text-white hover:bg-gray-700 focus-visible:ring-gray-500',
+      },
+      {
+        variant: 'solid',
+        color: 'danger',
+        className: 'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500',
+      },
+      {
+        variant: 'solid',
+        color: 'success',
+        className: 'bg-green-600 text-white hover:bg-green-700 focus-visible:ring-green-500',
+      },
+      {
+        variant: 'solid',
+        color: 'warning',
+        className: 'bg-yellow-500 text-white hover:bg-yellow-600 focus-visible:ring-yellow-400',
+      },
+      {
+        variant: 'outline',
+        color: 'default',
+        className: 'border-gray-900 text-gray-900 hover:bg-gray-100',
+      },
+      {
+        variant: 'outline',
+        color: 'primary',
+        className: 'border-blue-600 text-blue-600 hover:bg-blue-50',
+      },
+        {
+            variant: 'outline',
+            color: 'secondary',
+            className: 'border-gray-600 text-gray-600 hover:bg-gray-100',
+        },
+        {
+            variant: 'outline',
+            color: 'danger',
+            className: 'border-red-600 text-red-600 hover:bg-red-50',
+        },
+        {
+            variant: 'outline',
+            color: 'success',
+            className: 'border-green-600 text-green-600 hover:bg-green-50',
+        },
+        {
+            variant: 'outline',
+            color: 'warning',
+            className: 'border-yellow-500 text-yellow-500 hover:bg-yellow-50',
+        },
+
+      
+      {
+        variant: 'ghost',
+        color: 'default',
+        className: 'text-gray-900 hover:bg-gray-100',
+      },
+      {
+        variant: 'ghost',
+        color: 'primary',
+        className: 'text-blue-600 hover:bg-blue-50',
+      },
+      
     ],
     defaultVariants: {
       variant: 'solid',
-      color: 'primary',
+      color: 'default',
       size: 'md',
-      radius: 'md'
-    }
+      fullWidth: false,
+    },
   }
 );
 
-interface ButtonProps 
+interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   children: React.ReactNode;
-  glassEffect?: boolean;
+  loading?: boolean;
 }
-
-const GlassWrapper = ({ children, className = '' }) => (
-  <div 
-    className={cn(
-      'backdrop-blur-sm bg-white/10 border border-white/20 shadow-lg',
-      'hover:bg-white/20 transition-all duration-300',
-      className
-    )}
-  >
-    {children}
-  </div>
-);
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ 
@@ -147,19 +130,49 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     variant,
     color,
     size,
-    radius,
-    glassEffect,
+    fullWidth,
+    loading,
+    disabled,
     ...props
   }, ref) => {
-    const Comp = 'button';
     return (
-      <Comp
-        className={cn(buttonVariants({ variant, color, size, radius, className }))}
+      <button
+        className={cn(buttonVariants({ 
+          variant, 
+          color, 
+          size, 
+          fullWidth,
+          className
+        }))}
         ref={ref}
+        disabled={disabled || loading}
         {...props}
       >
-        {children}
-      </Comp>
+        {loading ? (
+          <span className="flex items-center gap-2">
+            <svg 
+              className="animate-spin h-4 w-4" 
+              fill="none" 
+              viewBox="0 0 24 24"
+            >
+              <circle 
+                className="opacity-25" 
+                cx="12" 
+                cy="12" 
+                r="10" 
+                stroke="currentColor" 
+                strokeWidth="4"
+              />
+              <path 
+                className="opacity-75" 
+                fill="currentColor" 
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+              />
+            </svg>
+            Loading...
+          </span>
+        ) : children}
+      </button>
     );
   }
 );
