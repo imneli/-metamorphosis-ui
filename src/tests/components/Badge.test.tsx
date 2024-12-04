@@ -13,9 +13,7 @@ const badgeVariants = cva(
       },
       color: {
         default: 'bg-white text-gray-800',
-        primary: 'bg-neutral-600 text-white',
         black: 'bg-black text-white',
-        secondary: 'bg-green-600 text-white',
         danger: 'bg-red-600 text-white',
         success: 'bg-green-500 text-white',
         warning: 'bg-yellow-500 text-white',

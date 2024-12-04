@@ -33,6 +33,10 @@ export default function ComponentsTest() {
         color={'success'}
         size={'md'}
         >hello world</Badge>
+        <Badge>hello world</Badge>
+        <Badge
+        color={'warning'}
+        >hello world</Badge>
       </div>
     </div>
   );
