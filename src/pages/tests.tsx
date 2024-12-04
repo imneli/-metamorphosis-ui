@@ -14,11 +14,12 @@ export default function ComponentsTest() {
         label='Nome'
       />
       </div>
-      <div className='p-2'>
+      <div className='p-2 bg-slate-500'>
         <Badge 
         variant='outline'
+        color={'black'}
         size={'md'}
-        color={'violet'}
+        
         >hello world</Badge>
       </div>
     </div>
