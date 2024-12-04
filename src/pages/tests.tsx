@@ -14,13 +14,13 @@ export default function ComponentsTest() {
         label='Nome'
       />
       </div>
-      <div className='p-2 bg-slate-500 flex flex-col max-w-36 gap-2'>
+      <div className='p-2 bg-white flex flex-col max-w-36 gap-2'>
         <Badge 
-        variant='outline'
         color={'black'}
         size={'md'}
         >hello world</Badge>
         <Badge 
+        variant='glass'
         color={'danger'}
         size={'md'}
         >hello world</Badge>

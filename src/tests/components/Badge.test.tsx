@@ -10,6 +10,7 @@ const badgeVariants = cva(
         solid: 'text-white',
         outline: 'border border-gray-300',
         ghost: 'text-gray-600',
+        glass: 'bg-opacity-75 backdrop-blur-md text-white border-2 border-white/50',
       },
       color: {
         default: 'bg-white text-gray-800',
