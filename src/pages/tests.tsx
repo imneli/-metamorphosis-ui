@@ -1,6 +1,6 @@
 import React from 'react';
 import { InputTest } from '@/tests/components/Input.test';
-import { Badge } from '@/tests/components/Badge.test';
+import { BadgeTest } from '@/tests/components/Badge.test';
 
 export default function ComponentsTest() {
 
@@ -15,26 +15,26 @@ export default function ComponentsTest() {
       />
       </div>
       <div className='p-2 bg-white flex flex-col max-w-36 gap-2'>
-        <Badge 
+        <BadgeTest 
         color={'black'}
         size={'md'}
-        >hello world</Badge>
-        <Badge 
+        >hello world</BadgeTest>
+        <BadgeTest 
         variant='glass'
         color={'danger'}
         size={'md'}
-        >hello world</Badge>
-        <Badge 
+        >hello world</BadgeTest>
+        <BadgeTest 
         variant='solid'
         color={'violet'}
         size={'md'}
-        >hello world</Badge>
-        <Badge 
+        >hello world</BadgeTest>
+        <BadgeTest 
         color={'success'}
         size={'md'}
-        >hello world</Badge>
-        <Badge>hello world</Badge>
-        <Badge>hello world</Badge>
+        >hello world</BadgeTest>
+        <BadgeTest>hello world</BadgeTest>
+        <BadgeTest>hello world</BadgeTest>
       </div>
     </div>
   );

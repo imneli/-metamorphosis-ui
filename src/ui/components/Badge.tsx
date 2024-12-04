@@ -39,7 +39,7 @@ export interface BadgeProps extends VariantProps<typeof badgeVariants> {
   className?: string;
 }
 
-const BadgeTest: FC<BadgeProps> = ({ children, variant, color, size, className }) => {
+const Badge: FC<BadgeProps> = ({ children, variant, color, size, className }) => {
   return (
     <span className={cn(badgeVariants({ variant, color, size }), className)}>
       {children}
@@ -47,4 +47,4 @@ const BadgeTest: FC<BadgeProps> = ({ children, variant, color, size, className }
   );
 };
 
-export { BadgeTest, badgeVariants };
+export { Badge, badgeVariants };
