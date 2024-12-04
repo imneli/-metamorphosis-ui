@@ -86,6 +86,13 @@ export const Cta = ({ platform, href, size, order, className }: CtaProps) => {
 // Usage:
 {/* 
 <>
+  Você pode alterar a ordem de acordo com o que pretende priorizar, por ex: 
+  quer o whatsapp como prioridade? Coloque order={1} que será colocado no canto inferior direito
+  e será o primeiro dentre os outros CTA's.
+
+  Existem os Sizes também, em que você pode colocar, recomendo usar o "lg", é o que melhor
+  se encaixa dentro da maioria de Layouts, pois tem melhor tamanho para uso em Smartphones.
+
   <Cta platform="twitter" href="#" order={1} size="lg" />
   <Cta platform="instagram" href="#" order={2} size="lg" />
   <Cta platform="whatsapp" href="#" order={3} size="lg" />
