@@ -27,14 +27,6 @@ export default function ComponentsTest() {
         <Button size="lg">Large</Button>
         <Button size="xl">Extra Large</Button>
       </div>
-      
-      <div className="space-x-2">
-        <Button radius="none">No Radius</Button>
-        <Button radius="sm">Small Radius</Button>
-        <Button radius="md">Medium Radius</Button>
-        <Button radius="lg">Large Radius</Button>
-        <Button radius="full">Full Radius</Button>
-      </div>
     </div>
   );
 }
