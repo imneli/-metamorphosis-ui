@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@/ui/components/Button';
 import { HeaderOne } from '@/ui/components/Headers/HeaderOne';
+import { Cta, CtaContainer } from '@/ui/components/Cta'
 
 export default function ComponentsTest() {
   const navigation = [
@@ -50,6 +51,11 @@ export default function ComponentsTest() {
           <Button size="md">Medium</Button>
           <Button size="lg">Large</Button>
           <Button size="xl">Extra Large</Button>
+        </div>
+
+        <div className="space-x-2">
+            <Cta platform="twitter" href="#" order={1} size="lg" />
+            <Cta platform="instagram" href="#" order={2} size="lg" />
         </div>
       </div>
     </div>
