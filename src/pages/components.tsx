@@ -1,7 +1,9 @@
 import React from 'react';
 import { Button } from '@/ui/components/Button';
 import { HeaderOne } from '@/ui/components/Headers/HeaderOne';
-import { Cta, CtaContainer } from '@/ui/components/Cta'
+import { Input } from '@/ui/components/Input';
+import { Cta } from '@/ui/components/Cta';
+import { FiMail, FiLock, FiCheck, FiAlertCircle } from 'react-icons/fi';
 
 export default function ComponentsTest() {
   const navigation = [
@@ -54,12 +56,65 @@ export default function ComponentsTest() {
         </div>
 
         <div className="space-x-2">
-            <Cta platform="twitter" href="https://x.com" order={4} size="lg" />
-            <Cta platform="discord" href="https://x.com" order={1} size="lg" />
-            <Cta platform="whatsapp" href="https://x.com" order={2} size="lg" />
-            <Cta platform="instagram" href="https://x.com" order={3} size="lg" />
+            <Cta platform="instagram" href="https://x.com" order={2} size="lg" />
+            <Cta platform="whatsapp" href="https://x.com" order={1} size="lg" />
         </div>
-      </div>
+        <div className='max-w-xl'>
+          <Input 
+            label="Default Input"
+            placeholder="Type something..."
+          />
+
+          <Input 
+            label="Email"
+            type="email"
+            placeholder="Enter your email"
+            startIcon={<FiMail />}
+          />
+
+          <Input 
+            label="Password"
+            type="password"
+            placeholder="Enter your password"
+            startIcon={<FiLock />}
+            helperText="Must be at least 8 characters"
+          />
+
+          <Input 
+            label="Error Input"
+            value="invalid@email"
+            error="Invalid email address"
+            startIcon={<FiMail />}
+            endIcon={<FiAlertCircle />}
+          />
+
+          <Input 
+            label="Success Input"
+            value="valid@email.com"
+            success="Email is available"
+            startIcon={<FiMail />}
+            endIcon={<FiCheck />}
+          />
+
+          <Input 
+            label="Small Input"
+            size="sm"
+            placeholder="Small input"
+          />
+
+          <Input 
+            label="Large Input"
+            size="lg"
+            placeholder="Large input"
+          />
+
+          <Input 
+            label="Disabled Input"
+            disabled
+            placeholder="Disabled input"
+          />
+        </div>
+        </div>
     </div>
   );
 }
