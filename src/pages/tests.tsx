@@ -1,6 +1,6 @@
 import React from 'react';
 import { InputTest } from '@/tests/components/Input.test';
-
+import { Badge } from '@/tests/components/Badge.test';
 
 export default function ComponentsTest() {
 
@@ -13,6 +13,13 @@ export default function ComponentsTest() {
         variant={'default'}
         label='Nome'
       />
+      </div>
+      <div>
+        <Badge 
+        variant='outline'
+        color={'primary'}
+        size={'lg'}
+        >Teste</Badge>
       </div>
     </div>
   );
