@@ -22,6 +22,7 @@ const platforms = {
     icon: <FaDiscord className="h-5 w-5" />,
     class: 'bg-[#5865F2] hover:bg-[#4752c4]',
   },
+
 } as const;
 
 const ctaVariants = cva(
@@ -45,6 +46,7 @@ const ctaVariants = cva(
         2: 'bottom-[calc(1.5rem+4rem)]', 
         3: 'bottom-[calc(1.5rem+8rem)]', 
         4: 'bottom-[calc(1.5rem+12rem)]',
+        5: 'bottom-[calc(1.5rem+16rem)]',
       }
     },
     defaultVariants: {
@@ -58,7 +60,7 @@ interface CtaProps extends VariantProps<typeof ctaVariants> {
   platform: Platform;
   href: string;
   className?: string;
-  order: 1 | 2 | 3 | 4;
+  order: 1 | 2 | 3 | 4 | 5;
 }
 
 export const Cta = ({ platform, href, size, order, className }: CtaProps) => {
