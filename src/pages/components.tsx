@@ -54,9 +54,8 @@ export default function ComponentsTest() {
         </div>
 
         <div className="space-x-2">
-        <CtaContainer spacing="xl" position="bottom-right">
-            <Cta platform="twitter" href="https://twitter.com/username" size="xl" position={4} />
-        </CtaContainer>
+            <Cta platform="twitter" href="#" order={1} size="lg" />
+            <Cta platform="instagram" href="#" order={2} size="lg" />
         </div>
       </div>
     </div>

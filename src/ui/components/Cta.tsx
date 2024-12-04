@@ -8,19 +8,19 @@ type Platform = 'twitter' | 'whatsapp' | 'instagram' | 'discord';
 const platforms = {
   twitter: {
     icon: <FaXTwitter className="h-5 w-5" />,
-    class: 'bg-black hover:bg-neutral-800 mt-2', 
+    class: 'bg-black hover:bg-neutral-800', 
   },
   whatsapp: {
     icon: <FaWhatsapp className="h-5 w-5" />,
-    class: 'bg-[#25D366] hover:bg-[#22bf5b] mt-2',
+    class: 'bg-[#25D366] hover:bg-[#22bf5b]',
   },
   instagram: {
     icon: <FaInstagram className="h-5 w-5" />,
-    class: 'bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] hover:opacity-90 mt-2',
+    class: 'bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] hover:opacity-90',
   },
   discord: {
     icon: <FaDiscord className="h-5 w-5" />,
-    class: 'bg-[#5865F2] hover:bg-[#4752c4] mt-2',
+    class: 'bg-[#5865F2] hover:bg-[#4752c4]',
   },
 } as const;
 
@@ -30,7 +30,7 @@ const ctaVariants = cva(
     'transition-all duration-200 ease-in-out',
     'focus:outline-none focus:ring-2 focus:ring-offset-2',
     'shadow-lg hover:shadow-xl hover:scale-110',
-    'fixed right-6 z-50', 
+    'fixed right-6 z-50',
   ],
   {
     variants: {
@@ -40,16 +40,16 @@ const ctaVariants = cva(
         lg: 'h-12 w-12',
         xl: 'h-14 w-14',
       },
-      position: {
-        1: 'bottom-6', 
-        2: 'bottom-[5.5rem]', 
-        3: 'bottom-[10rem]', 
-        4: 'bottom-[14.5rem]', 
+      order: {
+        1: 'bottom-6',
+        2: 'bottom-[calc(1.5rem+4rem)]', 
+        3: 'bottom-[calc(1.5rem+8rem)]', 
+        4: 'bottom-[calc(1.5rem+12rem)]',
       }
     },
     defaultVariants: {
       size: 'md',
-      position: 1,
+      order: 1,
     },
   }
 );
@@ -58,10 +58,10 @@ interface CtaProps extends VariantProps<typeof ctaVariants> {
   platform: Platform;
   href: string;
   className?: string;
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  order: 1 | 2 | 3 | 4;
 }
 
-export const Cta = ({ platform, href, size, className }: CtaProps) => {
+export const Cta = ({ platform, href, size, order, className }: CtaProps) => {
   const config = platforms[platform];
 
   return (
@@ -70,9 +70,8 @@ export const Cta = ({ platform, href, size, className }: CtaProps) => {
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        ctaVariants({ size }),
+        ctaVariants({ size, order }),
         config.class,
-        'hover:scale-110',
         className
       )}
       aria-label={`Visit our ${platform}`}
@@ -82,46 +81,12 @@ export const Cta = ({ platform, href, size, className }: CtaProps) => {
   );
 };
 
-interface CtaContainerProps {
-  children: React.ReactNode;
-  spacing?: 'sm' | 'md' | 'lg' | 'xl';
-  position: 'bottom-right' | 'bottom-left';
-}
-
-export const CtaContainer = ({ 
-  children, 
-  spacing = 'md',
-  position = 'bottom-right'
-}: CtaContainerProps) => {
-  const spacingClasses = {
-    sm: 'space-y-2',
-    md: 'space-y-4',
-    lg: 'space-y-6',
-  };
-
-  const positionClasses = {
-    'bottom-right': 'right-4 sm:right-6',
-    'bottom-left': 'left-4 sm:left-6',
-  };
-
-  return (
-    <div className={cn(
-      'fixed bottom-4 sm:bottom-6 z-50',
-      positionClasses[position],
-      'flex flex-col-reverse',
-      spacingClasses[spacing]
-    )}>
-      {children}
-    </div>
-  );
-};
-
-// Exemplo:
+// Usage:
 {/* 
-<CtaContainer spacing="md">
-  <Cta platform="twitter" href="https://twitter.com/username" />
-  <Cta platform="instagram" href="https://instagram.com/username" />
-  <Cta platform="whatsapp" href="https://wa.me/1234567890" />
-  <Cta platform="discord" href="https://discord.gg/invite" />
-</CtaContainer>
+<>
+  <Cta platform="twitter" href="#" order={1} size="lg" />
+  <Cta platform="instagram" href="#" order={2} size="lg" />
+  <Cta platform="whatsapp" href="#" order={3} size="lg" />
+  <Cta platform="discord" href="#" order={4} size="lg" />
+</> 
 */}
