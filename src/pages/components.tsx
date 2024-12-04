@@ -97,6 +97,7 @@ export default function Components() {
             endIcon={<FiCheck />}
           />
 
+
           <Input 
             label="Small Input"
             size="sm"

@@ -1,6 +1,7 @@
 import React from 'react';
 import { InputTest } from '@/tests/components/Input.test';
 import { BadgeTest } from '@/tests/components/Badge.test';
+import { Separator } from '@/tests/components/Separator.test';
 
 export default function ComponentsTest() {
 
@@ -18,7 +19,7 @@ export default function ComponentsTest() {
         <BadgeTest 
         color={'black'}
         size={'md'}
-        >hello world</BadgeTest>
+        >test separator</BadgeTest>
         <BadgeTest 
         variant='glass'
         color={'danger'}
@@ -36,6 +37,7 @@ export default function ComponentsTest() {
         <BadgeTest>hello world</BadgeTest>
         <BadgeTest>hello world</BadgeTest>
       </div>
+      <Separator orientation='horizontal'/>
     </div>
   );
 }
