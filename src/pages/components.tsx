@@ -5,7 +5,7 @@ import { Input } from '@/ui/components/Input';
 import { Cta } from '@/ui/components/Cta';
 import { FiMail, FiLock, FiCheck, FiAlertCircle } from 'react-icons/fi';
 
-export default function ComponentsTest() {
+export default function Components() {
   const navigation = [
     <a href="#" key="home">Home</a>,
     <a href="#" key="about">About</a>,
