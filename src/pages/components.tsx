@@ -59,7 +59,7 @@ export default function ComponentsTest() {
             <Cta platform="instagram" href="https://x.com" order={2} size="lg" />
             <Cta platform="whatsapp" href="https://x.com" order={1} size="lg" />
         </div>
-        <div className='max-w-xl'>
+        <div className='max-w-lg'>
           <Input 
             label="Default Input"
             placeholder="Type something..."
