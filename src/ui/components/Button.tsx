@@ -117,7 +117,7 @@ const buttonVariants = cva(
 );
 
 interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'color'>, // remove a propriedade 'color' do ButtonHTMLAttributes
     VariantProps<typeof buttonVariants> {
   children: React.ReactNode;
   loading?: boolean;
