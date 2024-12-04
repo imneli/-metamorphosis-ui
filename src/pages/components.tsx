@@ -60,6 +60,7 @@ export default function ComponentsTest() {
             <Cta platform="whatsapp" href="https://x.com" order={1} size="lg" />
         </div>
         <div className='max-w-lg'>
+        <h2 className="text-2xl font-bold mb-4">Inputs</h2>
           <Input 
             label="Default Input"
             placeholder="Type something..."

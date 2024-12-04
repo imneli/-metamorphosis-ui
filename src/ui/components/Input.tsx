@@ -54,6 +54,10 @@ export interface InputProps extends InputPropsWithoutSize, VariantProps<typeof i
   endIcon?: React.ReactNode;
 }
 
+// Input personalizado com variants (default, error, success)
+// Propriedades como label, variant, size, error, success, helperText, e ícones.
+// Você pode adicionar seu próprio Icon no Input, e usar para o que bem quiser.
+
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ 
