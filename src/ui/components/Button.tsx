@@ -66,9 +66,9 @@ const COLOR_VARIANTS = {
     ghost: 'text-green-500 hover:bg-green-50 focus:ring-green-200',
   },
   neutral: {
-    solid: 'bg-black text-white hover:bg-black-600 focus:ring-black-300',
-    outline: 'border border-black text-black-500 hover:bg-black-50 focus:ring-black-200',
-    ghost: 'text-black hover:bg-black-50 focus:ring-black-200',
+    solid: 'bg-black text-white hover:bg-black focus:ring-black',
+    outline: 'border border-gray-500 text-gray-500 hover:bg-gray-50 focus:ring-gray-200',
+    ghost: 'text-black hover:bg-black focus:ring-black',
   }
 };
 

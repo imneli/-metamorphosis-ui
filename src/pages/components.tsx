@@ -17,6 +17,7 @@ export default function ComponentsTest() {
         <Button variant="outline">Outline Default</Button>
         <Button variant="outline" color="secondary">Outline Secondary</Button>
         <Button variant="ghost">Ghost Button</Button>
+        <Button variant="neutral" outline="black">Black</Button>
       </div>
       
       <div className="space-x-2">
