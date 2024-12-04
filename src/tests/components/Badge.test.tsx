@@ -8,16 +8,17 @@ const badgeVariants = cva(
     variants: {
       variant: {
         solid: 'text-white',
-        outline: 'border-2',
+        outline: 'border border-gray-400',
         ghost: 'text-gray-600',
       },
       color: {
-        default: 'bg-gray-200 text-gray-800',
+        default: 'bg-gray-300 text-gray-800',
         primary: 'bg-neutral-600 text-white',
         secondary: 'bg-green-600 text-white',
         danger: 'bg-red-600 text-white',
         success: 'bg-green-500 text-white',
         warning: 'bg-yellow-500 text-white',
+        violet: 'bg-violet-400 text-white'
       },
       size: {
         sm: 'h-6 px-3 text-xs', 
