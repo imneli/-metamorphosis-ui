@@ -4,6 +4,7 @@ export * from './Badge';
 export * from './Separator';
 export * from './Headers/HeaderOne';
 export * from './Cta';
+export * from './Textarea';
 
 export { cn } from '@/lib/utils';
 
