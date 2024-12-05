@@ -1,7 +1,6 @@
 import * as class_variance_authority_dist_types from 'class-variance-authority/dist/types';
 import React, { FC } from 'react';
 import { VariantProps } from 'class-variance-authority';
-import * as react_jsx_runtime from 'react/jsx-runtime';
 import { ClassValue } from 'clsx';
 
 declare const buttonVariants: (props?: ({
@@ -75,8 +74,15 @@ interface CtaProps extends VariantProps<typeof ctaVariants> {
     className?: string;
     order: 1 | 2 | 3 | 4 | 5;
 }
-declare const Cta: ({ platform, href, size, order, className }: CtaProps) => react_jsx_runtime.JSX.Element;
+declare const Cta: ({ platform, href, size, order, className }: CtaProps) => React.JSX.Element;
 
 declare function cn(...inputs: ClassValue[]): string;
 
-export { Badge, type BadgeProps, Button, type ButtonProps, Cta, type CtaProps, HeaderOne, type HeaderOneProps, Input, type InputProps, Separator, type SeparatorProps, badgeVariants, buttonVariants, cn, inputVariants };
+declare const preset: {
+    content: string[];
+    theme: {
+        extend: {};
+    };
+};
+
+export { Badge, type BadgeProps, Button, type ButtonProps, Cta, type CtaProps, HeaderOne, type HeaderOneProps, Input, type InputProps, Separator, type SeparatorProps, badgeVariants, buttonVariants, cn, preset as default, inputVariants };

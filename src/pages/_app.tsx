@@ -1,7 +1,6 @@
-import '@/styles/globals.css'
-import 'metamorphosis-ui/dist/styles.css';
 import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
+import '@/ui/styles/index.css';
 import { type ReactElement, type ReactNode } from 'react'
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {

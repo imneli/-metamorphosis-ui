@@ -1,16 +1,11 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
-  entry: ['src/ui/components/index.ts', 'src/ui/styles/index.css'],
+  entry: ['src/ui/components/index.ts'],
   format: ['cjs', 'esm'],
-  dts: {
-    resolve: true,
-    entry: 'src/ui/components/index.ts'
-  },
-  sourcemap: true,
+  dts: true,
+  sourcemap: false, 
   clean: true,
-  minify: false,
-  splitting: false,
   external: [
     'react',
     'react-dom',
@@ -20,5 +15,10 @@ export default defineConfig({
     'tailwind-merge',
     'react-icons'
   ],
-  outDir: 'dist'
+  treeshake: true,
+  outDir: 'dist',
+  minify: false,
+  esbuildOptions(options) {
+    options.sourcemap = false 
+  }
 });
