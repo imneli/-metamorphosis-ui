@@ -14,4 +14,4 @@ A modern and accessible React component library built with Next.js, Tailwind CSS
 ## Installation
 
 ```bash
-npm install```
+npm install metamorphosis-ui```
