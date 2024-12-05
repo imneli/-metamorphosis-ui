@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
-  entry: ['src/ui/components/index.ts'],
+  entry: ['src/ui/components/index.ts', 'src/ui/styles/index.css'],
   format: ['cjs', 'esm'],
   dts: true,
   splitting: false,
@@ -17,4 +17,8 @@ export default defineConfig({
   ],
   treeshake: true,
   outDir: 'dist',
+  minify: true,
+  loader: {
+    '.css': 'css'
+  }
 });

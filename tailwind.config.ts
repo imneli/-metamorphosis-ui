@@ -6,6 +6,7 @@ export default {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/ui/**/*.{js,ts,jsx,tsx,mdx}", 
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    './node_modules/metamorphosis-ui/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
     extend: {
