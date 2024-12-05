@@ -117,7 +117,7 @@ export default function Components() {
             placeholder="Disabled input"
           />
 
-          <TextAreaTest />
+          <TextAreaTest placeholder='teste place'/>
         </div>
         </div>
     </div>
