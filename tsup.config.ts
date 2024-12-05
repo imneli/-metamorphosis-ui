@@ -7,7 +7,7 @@ export default defineConfig({
     resolve: true,
     entry: 'src/ui/components/index.ts'
   },
-  sourcemap: true, 
+  sourcemap: true,
   clean: true,
   minify: false,
   splitting: false,
@@ -20,5 +20,5 @@ export default defineConfig({
     'tailwind-merge',
     'react-icons'
   ],
-  outDir: 'dist',
+  outDir: 'dist'
 });
