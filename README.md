@@ -28,4 +28,8 @@
 npm install metamorphosis-ui
 ```
 
-<div align="left" style="display: flex; flex-direction: column; gap: 8px;"> <a href="COMPONENTS.md">📚 Components Documentation</a> <a href="CONTRIBUTING.md">🤝 Contributing Guidelines</a> <a href="LICENSE">📜 License</a> </div> 
+<div align="left" style="display: flex; flex-direction: column; gap: 8px;">
+    <a href="COMPONENTS.md">📚 Components Documentation</a> 
+    <a href="CONTRIBUTING.md">🤝 Contributing Guidelines</a> 
+    <a href="LICENSE">📜 License</a> 
+</div> 
