@@ -376,6 +376,25 @@ var Cta = function(param) {
         "aria-label": "Visit our ".concat(platform)
     }, config.icon);
 };
+var Textarea = forwardRef(function(_param, ref) {
+    var className = _param.className, label = _param.label, helperText = _param.helperText, props = _object_without_properties(_param, [
+        "className",
+        "label",
+        "helperText"
+    ]);
+    return /* @__PURE__ */ React5.createElement("div", {
+        className: "flex flex-col space-y-1"
+    }, label && /* @__PURE__ */ React5.createElement("label", {
+        className: "text-sm font-medium text-gray-700 p-2"
+    }, label), /* @__PURE__ */ React5.createElement("textarea", _object_spread({
+        placeholder: "Type your message here",
+        ref: ref,
+        className: cn("block w-full rounded-md border border-gray-300 shadow-sm focus:outline-none p-2", className)
+    }, props)), helperText && /* @__PURE__ */ React5.createElement("p", {
+        className: "text-sm text-gray-500"
+    }, helperText));
+});
+Textarea.displayName = "TextAreaTest";
 // src/ui/components/index.ts
 var preset = {
     content: [
@@ -386,4 +405,4 @@ var preset = {
     }
 };
 var components_default = preset;
-export { Badge, Button, Cta, HeaderOne, Input, Separator, badgeVariants, buttonVariants, cn, components_default as default, inputVariants };
+export { Badge, Button, Cta, HeaderOne, Input, Separator, Textarea, badgeVariants, buttonVariants, cn, components_default as default, inputVariants };

@@ -76,6 +76,12 @@ interface CtaProps extends VariantProps<typeof ctaVariants> {
 }
 declare const Cta: ({ platform, href, size, order, className }: CtaProps) => React.JSX.Element;
 
+interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+    label?: string;
+    helperText?: string;
+}
+declare const Textarea: React.ForwardRefExoticComponent<TextAreaProps & React.RefAttributes<HTMLTextAreaElement>>;
+
 declare function cn(...inputs: ClassValue[]): string;
 
 declare const preset: {
@@ -85,4 +91,4 @@ declare const preset: {
     };
 };
 
-export { Badge, type BadgeProps, Button, type ButtonProps, Cta, type CtaProps, HeaderOne, type HeaderOneProps, Input, type InputProps, Separator, type SeparatorProps, badgeVariants, buttonVariants, cn, preset as default, inputVariants };
+export { Badge, type BadgeProps, Button, type ButtonProps, Cta, type CtaProps, HeaderOne, type HeaderOneProps, Input, type InputProps, Separator, type SeparatorProps, Textarea, badgeVariants, buttonVariants, cn, preset as default, inputVariants };

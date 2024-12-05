@@ -190,3 +190,26 @@ import { Separator } from 'metamorphosis-ui';
 <Separator className="my-4 bg-gray-200" />
 <Separator orientation="vertical" className="mx-2 h-6" />
 ```
+
+## Textarea
+
+A flexible textarea component with optional labels and helper texts for enhanced user input experiences.
+
+```tsx
+import { Textarea } from 'metamorphosis-ui';
+
+// Basic usage
+<Textarea placeholder="Type your message here..." />
+
+// With label
+<Textarea 
+  label="Description" 
+  placeholder="Enter your description" 
+/>
+
+// With helper text
+<Textarea 
+  placeholder="Enter your description" 
+  helperText="Maximum of 500 characters" 
+/>
+```
