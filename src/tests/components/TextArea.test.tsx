@@ -25,7 +25,7 @@ const TextAreaTest = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           {...props}
         />
         {helperText && (
-          <p className="text-xs text-gray-600">
+          <p className="text-sm text-gray-500">
             {helperText}
           </p>
         )}
