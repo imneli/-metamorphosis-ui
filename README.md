@@ -10,3 +10,9 @@ A modern and accessible React component library built with Next.js, Tailwind CSS
 - 🎭 Customizable with Tailwind CSS
 - 📱 Responsive components
 - 🚀 Easy to use and integrate
+
+## Installation
+
+```bash
+npm install metamorphosis-ui
+```
