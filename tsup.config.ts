@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
-  entry: ['src/ui/components/index.ts'],
+  entry: ['src/ui/components/index.ts', 'src/ui/styles/index.css'],
   format: ['cjs', 'esm'],
   dts: {
     resolve: true,
