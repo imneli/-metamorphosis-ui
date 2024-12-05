@@ -13,7 +13,8 @@
     "build": "tsup",
     "dev": "next dev",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
@@ -25,15 +26,22 @@
     "react-icons": "^5.4.0",
     "tailwind-merge": "^2.5.5"
   },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0"
+  },
   "devDependencies": {
-    "@swc/core": "^1.10.0",
+    "@swc/core": "^1.0.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.16",
-    "tsup": "^8.3.5",
+    "tsup": "^8.0.0",
     "typescript": "^5"
   }
 }
