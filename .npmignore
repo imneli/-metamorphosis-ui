@@ -4,3 +4,4 @@ node_modules/
 .gitignore
 next.config.ts
 tsconfig.json
+src/tests/
