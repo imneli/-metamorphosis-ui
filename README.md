@@ -5,6 +5,10 @@
 </div>
 
 <div align="center">
+  <img src="./public/metamorphosis.png" alt="npm version" />
+</div>
+
+<div align="center">
   <a href="https://www.npmjs.com/package/metamorphosis-ui">
     <img src="https://img.shields.io/npm/v/metamorphosis-ui" alt="npm version" />
   </a>
