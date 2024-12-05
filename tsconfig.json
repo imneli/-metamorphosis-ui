@@ -20,11 +20,9 @@
     "declarationDir": "./dist/types",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["*"]
     },
     "noEmit": false,
     "incremental": false
