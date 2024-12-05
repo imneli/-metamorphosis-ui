@@ -5,7 +5,7 @@ interface SeparatorProps extends React.HTMLProps<HTMLDivElement> {
   className?: string;
 }
 
-export const SeparatorTest: React.FC<SeparatorProps> = ({
+export const Separator: React.FC<SeparatorProps> = ({
   orientation = 'horizontal',
   className,
   ...props
