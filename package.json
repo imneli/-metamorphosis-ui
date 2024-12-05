@@ -26,6 +26,7 @@
     "tailwind-merge": "^2.5.5"
   },
   "devDependencies": {
+    "@swc/core": "^1.10.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

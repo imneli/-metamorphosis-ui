@@ -56,7 +56,7 @@ const ctaVariants = cva(
   }
 );
 
-interface CtaProps extends VariantProps<typeof ctaVariants> {
+export interface CtaProps extends VariantProps<typeof ctaVariants> {
   platform: Platform;
   href: string;
   className?: string;
