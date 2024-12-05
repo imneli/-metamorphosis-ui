@@ -5,3 +5,4 @@ node_modules/
 next.config.ts
 tsconfig.json
 src/tests/
+!LICENSE
