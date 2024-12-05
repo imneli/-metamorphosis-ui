@@ -21,8 +21,7 @@ const platforms = {
   discord: {
     icon: <FaDiscord className="h-5 w-5" />,
     class: 'bg-[#5865F2] hover:bg-[#4752c4]',
-  },<Separator/>
-
+  }
 } as const;
 
 const ctaVariants = cva(
