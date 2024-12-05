@@ -5,43 +5,80 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "sideEffects": false,
   "private": false,
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "build": "tsup",
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint",
-    "prepublishOnly": "npm run build"
-  },
-  "dependencies": {
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "lucide-react": "^0.464.0",
-    "next": "15.0.3",
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106",
-    "react-icons": "^5.4.0",
-    "tailwind-merge": "^2.5.5"
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run clean && npm run build"
   },
   "peerDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.0.0",
-    "tailwind-merge": "^2.0.0"
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "class-variance-authority": ">=0.7.0",
+    "clsx": ">=2.0.0",
+    "react-icons": ">=5.0.0",
+    "tailwind-merge": ">=2.0.0"
   },
   "devDependencies": {
-    "@swc/core": "^1.0.0",
-    "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "typescript": "^5",
+    "tsup": "^8.0.0",
+    "@swc/core": "^1.0.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "react-icons": "^5.0.0",
+    "tailwind-merge": "^2.0.0",
+    "rimraf": "^5.0.0",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.16",
-    "tsup": "^8.0.0",
-    "typescript": "^5"
-  }
+    "tailwindcss": "^3.4.16"
+  },
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "declaration": true,
+    "declarationDir": "dist",
+    "sourceMap": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".next",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
 }
