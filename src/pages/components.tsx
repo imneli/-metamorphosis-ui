@@ -13,7 +13,7 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-} from "@/tests/components/Card.test";
+} from "@/ui/components/Card";
 
 export default function Components() {
   const navigation = [
