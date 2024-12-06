@@ -218,6 +218,17 @@ import { Textarea } from 'metamorphosis-ui';
 
 A flexible label component for form elements with customizable styling.
 
+```tsx
+import { Label } from 'metamorphosis-ui';
+
+// Basic usage
+<Label>Username</Label>
+
+<div className="space-y-2">
+  <Label htmlFor="password">Password</Label>
+  <Input id="password" type="password" />
+</div>
+```
 
 
 ## Card
