@@ -5,6 +5,7 @@ import { Input } from '@/ui/components/Input';
 import { Cta } from '@/ui/components/Cta';
 import { FiMail, FiLock, FiCheck, FiAlertCircle } from 'react-icons/fi';
 import { TextAreaTest } from '@/tests/components/TextArea.test';
+import { Label } from '@/tests/components/Label.test';
 
 export default function Components() {
   const navigation = [
@@ -117,6 +118,7 @@ export default function Components() {
             placeholder="Disabled input"
           />
 
+          <Label>test 1</Label>
           <TextAreaTest 
           placeholder='teste place' 
           helperText='Teste helper'
