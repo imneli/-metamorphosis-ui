@@ -5,6 +5,7 @@ export * from './Separator';
 export * from './Headers/HeaderOne';
 export * from './Cta';
 export * from './Textarea';
+export * from './Label';
 
 export { cn } from '@/lib/utils';
 
