@@ -6,6 +6,14 @@ import { Cta } from '@/ui/components/Cta';
 import { FiMail, FiLock, FiCheck, FiAlertCircle } from 'react-icons/fi';
 import { TextAreaTest } from '@/tests/components/TextArea.test';
 import { LabelTest } from '@/tests/components/Label.test';
+import {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/tests/components/Card.test";
 
 export default function Components() {
   const navigation = [
@@ -124,6 +132,23 @@ export default function Components() {
           helperText='Teste helper'
           label='Teste label'
            />
+
+<Card variant="glass" size="lg">
+  <CardHeader>
+    <CardTitle>Advanced Analytics</CardTitle>
+    <CardDescription>
+      Get detailed insights into your business performance
+    </CardDescription>
+  </CardHeader>
+  <CardContent>
+    <p>View comprehensive data and metrics in real-time.</p>
+  </CardContent>
+  <CardFooter>
+    <button className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90">
+      View Details
+    </button>
+  </CardFooter>
+</Card>
         </div>
         </div>
     </div>
