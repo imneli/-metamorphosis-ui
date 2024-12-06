@@ -133,22 +133,18 @@ export default function Components() {
           label='Teste label'
            />
 
-<Card variant="glass" size="lg">
-  <CardHeader>
-    <CardTitle>Advanced Analytics</CardTitle>
-    <CardDescription>
-      Get detailed insights into your business performance
-    </CardDescription>
-  </CardHeader>
-  <CardContent>
-    <p>View comprehensive data and metrics in real-time.</p>
-  </CardContent>
-  <CardFooter>
-    <button className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90">
-      View Details
-    </button>
-  </CardFooter>
-</Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Card Title</CardTitle>
+              <CardDescription>Card description here</CardDescription>
+            </CardHeader>
+            <CardContent>
+              main content
+            </CardContent>
+            <CardFooter>
+              Footer content
+            </CardFooter>
+          </Card>
         </div>
         </div>
     </div>
