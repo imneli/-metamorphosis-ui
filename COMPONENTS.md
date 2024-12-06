@@ -214,6 +214,12 @@ import { Textarea } from 'metamorphosis-ui';
 />
 ```
 
+## Label
+
+A flexible label component for form elements with customizable styling.
+
+
+
 ## Card
 
 Card for your contents, organize your things using a Card Layout
