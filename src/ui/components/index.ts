@@ -6,6 +6,8 @@ export * from './Headers/HeaderOne';
 export * from './Cta';
 export * from './Textarea';
 export * from './Checkbox';
+export * from './Label';
+export * from './Card';
 
 export { cn } from '@/lib/utils';
 

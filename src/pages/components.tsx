@@ -6,6 +6,15 @@ import { Cta } from '@/ui/components/Cta';
 import { FiMail, FiLock, FiCheck, FiAlertCircle } from 'react-icons/fi';
 import { TextAreaTest } from '@/tests/components/TextArea.test';
 import { Checkbox } from '@/ui/components/Checkbox';
+import { LabelTest } from '@/tests/components/Label.test';
+import {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/ui/components/Card";
 
 export default function Components() {
   const navigation = [
@@ -118,11 +127,25 @@ export default function Components() {
             placeholder="Disabled input"
           />
 
+          <LabelTest>test 1</LabelTest>
           <TextAreaTest 
           placeholder='teste place' 
           helperText='Teste helper'
           label='Teste label'
            />
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Card Title</CardTitle>
+              <CardDescription>Card description here</CardDescription>
+            </CardHeader>
+            <CardContent>
+              main content
+            </CardContent>
+            <CardFooter>
+              Footer content
+            </CardFooter>
+          </Card>
         </div>
 
         <div className="space-y-2">

@@ -213,3 +213,43 @@ import { Textarea } from 'metamorphosis-ui';
   helperText="Maximum of 500 characters" 
 />
 ```
+
+## Label
+
+A flexible label component for form elements with customizable styling.
+
+```tsx
+import { Label } from 'metamorphosis-ui';
+
+// Basic usage
+<Label>Username</Label>
+
+<div className="space-y-2">
+  <Label htmlFor="password">Password</Label>
+  <Input id="password" type="password" />
+</div>
+```
+
+
+## Card
+
+Card for your contents, organize your things using a Card Layout
+
+```tsx
+import { Button, Card, TextArea } from 'metamorphosis-ui'
+
+    <Card>
+      <Card.Header>
+        <Card.Title>Contact Form</Card.Title>
+      </Card.Header>
+      <Card.Content>
+        <TextArea 
+          label="Message"
+          helperText="Enter your message here"
+        />
+      </Card.Content>
+      <Card.Footer>
+        <Button>Submit</Button>
+      </Card.Footer>
+    </Card>
+```
