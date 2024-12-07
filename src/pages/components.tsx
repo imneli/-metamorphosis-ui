@@ -5,7 +5,7 @@ import { Input } from '@/ui/components/Input';
 import { Cta } from '@/ui/components/Cta';
 import { FiMail, FiLock, FiCheck, FiAlertCircle } from 'react-icons/fi';
 import { TextAreaTest } from '@/tests/components/TextArea.test';
-import { Checkbox } from '@/tests/components/Checkbox.test';
+import { Checkbox } from '@/ui/components/Checkbox';
 
 export default function Components() {
   const navigation = [
