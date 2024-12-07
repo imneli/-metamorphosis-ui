@@ -1,7 +1,7 @@
 # Metamorphosis UI
 
 <div align="center">
-  <h3>A modern and accessible React component library</h3>
+  <h3>A modern and accessible React component library ✨</h3>
 </div>
 
 <div align="center">
