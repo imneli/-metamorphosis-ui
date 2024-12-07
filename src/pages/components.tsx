@@ -5,6 +5,7 @@ import { Input } from '@/ui/components/Input';
 import { Cta } from '@/ui/components/Cta';
 import { FiMail, FiLock, FiCheck, FiAlertCircle } from 'react-icons/fi';
 import { TextAreaTest } from '@/tests/components/TextArea.test';
+import { Checkbox } from '@/ui/components/Checkbox';
 import { LabelTest } from '@/tests/components/Label.test';
 import {
   Card,
@@ -145,6 +146,10 @@ export default function Components() {
               Footer content
             </CardFooter>
           </Card>
+        </div>
+
+        <div className="space-y-2">
+          <Checkbox id="terms" />
         </div>
         </div>
     </div>
