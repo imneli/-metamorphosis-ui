@@ -5,7 +5,7 @@
 </div>
 
 <div align="center">
-  <img src="./public/metamorphosis.png" alt="npm version" />
+  <img src="https://i.imgur.com/UGPzySo.png" alt="npm version" />
 </div>
 
 <div align="center">
