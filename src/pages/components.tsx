@@ -127,8 +127,6 @@ export default function Components() {
 
         <div className="space-y-2">
           <Checkbox id="terms" />
-          <Checkbox disabled />
-          <Checkbox disabled checked />
         </div>
         </div>
     </div>
