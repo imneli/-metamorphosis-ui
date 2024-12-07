@@ -253,3 +253,7 @@ import { Button, Card, TextArea } from 'metamorphosis-ui'
       </Card.Footer>
     </Card>
 ```
+
+## Checkbox
+
+Card for your contents, organize your things using a Card Layout
