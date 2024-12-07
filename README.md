@@ -9,12 +9,13 @@
 </div>
 
 <div align="center">
+<p>✨ Metamorphosis UI - Components✨</p>
   <a href="https://www.npmjs.com/package/metamorphosis-ui">
-    <img src="https://img.shields.io/npm/v/metamorphosis-ui" alt="npm version" />
-  </a>
-  <a href="https://www.npmjs.com/package/metamorphosis-ui">
-    <img src="https://img.shields.io/npm/l/metamorphosis-ui" alt="license" />
-</a>
+    <img src="https://img.shields.io/npm/v/metamorphosis-ui" alt="npm version" /></a>
+<a href="https://instagram.com/theuwsx" rel="nofollow"><img src="https://img.shields.io/badge/created%20by-@imneli-4BBAAB.svg" alt="Created by Matheus Montovaneli"></a>
+<a href="https://opensource.org/licenses/MIT" rel="nofollow"><img src="https://img.shields.io/github/license/imneli/metamorphosis-ui" alt="License"></a>
+<a href="https://www.npmjs.com/package/metamorphosis-ui" rel="nofollow"><img src="https://img.shields.io/npm/dw/metamorphosis-ui.svg" alt="npm"></a>
+<a href="https://github.com/imneli/metamorphosis-ui" rel="nofollow"><img src="https://img.shields.io/github/stars/imneli/metamorphosis-ui" alt="stars"></a>
 </div>
 
 ## Features

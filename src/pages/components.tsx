@@ -17,6 +17,8 @@ import {
 } from "@/ui/components/Card";
 
 export default function Components() {
+  
+
   const navigation = [
     <a href="#" key="home">Home</a>,
     <a href="#" key="about">About</a>,
@@ -69,6 +71,7 @@ export default function Components() {
         <div className="space-x-2">
             <Cta platform="instagram" href="https://x.com" order={2} size="lg" />
             <Cta platform="whatsapp" href="https://x.com" order={1} size="lg" />
+            <Cta platform="twitter" href="https://x.com" order={3} size="lg" />
         </div>
         <div className='max-w-lg'>
         <h2 className="text-2xl font-bold mb-4">Inputs</h2>
