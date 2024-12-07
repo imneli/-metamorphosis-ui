@@ -1,4 +1,12 @@
 'use strict';
+function _array_like_to_array(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+    for(var i = 0, arr2 = new Array(len); i < len; i++)arr2[i] = arr[i];
+    return arr2;
+}
+function _array_with_holes(arr) {
+    if (Array.isArray(arr)) return arr;
+}
 function _define_property(obj, key, value) {
     if (key in obj) {
         Object.defineProperty(obj, key, {
@@ -11,6 +19,33 @@ function _define_property(obj, key, value) {
         obj[key] = value;
     }
     return obj;
+}
+function _iterable_to_array_limit(arr, i) {
+    var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
+    if (_i == null) return;
+    var _arr = [];
+    var _n = true;
+    var _d = false;
+    var _s, _e;
+    try {
+        for(_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true){
+            _arr.push(_s.value);
+            if (i && _arr.length === i) break;
+        }
+    } catch (err) {
+        _d = true;
+        _e = err;
+    } finally{
+        try {
+            if (!_n && _i["return"] != null) _i["return"]();
+        } finally{
+            if (_d) throw _e;
+        }
+    }
+    return _arr;
+}
+function _non_iterable_rest() {
+    throw new TypeError("Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 function _object_spread(target) {
     for(var i = 1; i < arguments.length; i++){
@@ -54,20 +89,32 @@ function _object_without_properties_loose(source, excluded) {
     }
     return target;
 }
+function _sliced_to_array(arr, i) {
+    return _array_with_holes(arr) || _iterable_to_array_limit(arr, i) || _unsupported_iterable_to_array(arr, i) || _non_iterable_rest();
+}
+function _unsupported_iterable_to_array(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _array_like_to_array(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(n);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _array_like_to_array(o, minLen);
+}
 Object.defineProperty(exports, '__esModule', {
     value: true
 });
-var React5 = require('react');
+var React10 = require('react');
 var classVarianceAuthority = require('class-variance-authority');
 var clsx = require('clsx');
 var tailwindMerge = require('tailwind-merge');
 var fa6 = require('react-icons/fa6');
+var fa = require('react-icons/fa');
 function _interopDefault(e) {
     return e && e.__esModule ? e : {
         default: e
     };
 }
-var React5__default = /*#__PURE__*/ _interopDefault(React5);
+var React10__default = /*#__PURE__*/ _interopDefault(React10);
 // src/ui/components/Button.tsx
 function cn() {
     for(var _len = arguments.length, inputs = new Array(_len), _key = 0; _key < _len; _key++){
@@ -111,7 +158,7 @@ var buttonVariants = classVarianceAuthority.cva("inline-flex items-center justif
         fullWidth: false
     }
 });
-var Button = React5.forwardRef(function(_param, ref) {
+var Button = React10.forwardRef(function(_param, ref) {
     var children = _param.children, className = _param.className, variant = _param.variant, color = _param.color, size = _param.size, fullWidth = _param.fullWidth, loading = _param.loading, disabled = _param.disabled, props = _object_without_properties(_param, [
         "children",
         "className",
@@ -122,7 +169,7 @@ var Button = React5.forwardRef(function(_param, ref) {
         "loading",
         "disabled"
     ]);
-    return /* @__PURE__ */ React5__default.default.createElement("button", _object_spread({
+    return /* @__PURE__ */ React10__default.default.createElement("button", _object_spread({
         className: cn(buttonVariants({
             variant: variant,
             color: color,
@@ -131,7 +178,7 @@ var Button = React5.forwardRef(function(_param, ref) {
         }), className),
         ref: ref,
         disabled: disabled || loading
-    }, props), loading ? /* @__PURE__ */ React5__default.default.createElement("div", {
+    }, props), loading ? /* @__PURE__ */ React10__default.default.createElement("div", {
         className: "flex items-center gap-2"
     }, children) : children);
 });
@@ -173,7 +220,7 @@ var inputVariants = classVarianceAuthority.cva("flex w-full rounded-md border te
         fullWidth: true
     }
 });
-var Input = React5.forwardRef(function(_param, ref) {
+var Input = React10.forwardRef(function(_param, ref) {
     var className = _param.className, variant = _param.variant, size = _param.size, fullWidth = _param.fullWidth, label = _param.label, helperText = _param.helperText, error = _param.error, success = _param.success, startIcon = _param.startIcon, endIcon = _param.endIcon, disabled = _param.disabled, props = _object_without_properties(_param, [
         "className",
         "variant",
@@ -188,15 +235,15 @@ var Input = React5.forwardRef(function(_param, ref) {
         "disabled"
     ]);
     var inputVariant = error ? "error" : success ? "success" : variant;
-    return /* @__PURE__ */ React5__default.default.createElement("div", {
+    return /* @__PURE__ */ React10__default.default.createElement("div", {
         className: "space-y-1"
-    }, label && /* @__PURE__ */ React5__default.default.createElement("label", {
+    }, label && /* @__PURE__ */ React10__default.default.createElement("label", {
         className: "text-sm font-medium text-gray-700"
-    }, label), /* @__PURE__ */ React5__default.default.createElement("div", {
+    }, label), /* @__PURE__ */ React10__default.default.createElement("div", {
         className: "relative"
-    }, startIcon && /* @__PURE__ */ React5__default.default.createElement("div", {
+    }, startIcon && /* @__PURE__ */ React10__default.default.createElement("div", {
         className: "absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
-    }, startIcon), /* @__PURE__ */ React5__default.default.createElement("input", _object_spread({
+    }, startIcon), /* @__PURE__ */ React10__default.default.createElement("input", _object_spread({
         className: cn(inputVariants({
             variant: inputVariant,
             size: size,
@@ -204,9 +251,9 @@ var Input = React5.forwardRef(function(_param, ref) {
         }), startIcon && "pl-10", endIcon && "pr-10", className),
         ref: ref,
         disabled: disabled
-    }, props)), endIcon && /* @__PURE__ */ React5__default.default.createElement("div", {
+    }, props)), endIcon && /* @__PURE__ */ React10__default.default.createElement("div", {
         className: "absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
-    }, endIcon)), (helperText || error || success) && /* @__PURE__ */ React5__default.default.createElement("p", {
+    }, endIcon)), (helperText || error || success) && /* @__PURE__ */ React10__default.default.createElement("p", {
         className: cn("text-xs", error && "text-red-600", success && "text-green-600", !error && !success && "text-gray-500")
     }, error || success || helperText));
 });
@@ -241,7 +288,7 @@ var badgeVariants = classVarianceAuthority.cva("inline-flex items-center justify
 });
 var Badge = function(param) {
     var children = param.children, variant = param.variant, color = param.color, size = param.size, className = param.className;
-    return /* @__PURE__ */ React5__default.default.createElement("span", {
+    return /* @__PURE__ */ React10__default.default.createElement("span", {
         className: cn(badgeVariants({
             variant: variant,
             color: color,
@@ -254,7 +301,7 @@ var Separator = function(_param) {
         "orientation",
         "className"
     ]);
-    return /* @__PURE__ */ React5__default.default.createElement("div", _object_spread({
+    return /* @__PURE__ */ React10__default.default.createElement("div", _object_spread({
         className: "".concat(orientation === "vertical" ? "w-px h-8 bg-gray-200" : "w-full h-px bg-gray-200 my-2", " ").concat(className)
     }, props));
 };
@@ -292,54 +339,54 @@ var HeaderOne = function(param) {
         "2xl": "max-w-screen-2xl",
         full: "w-full"
     };
-    return /* @__PURE__ */ React5__default.default.createElement("header", {
+    return /* @__PURE__ */ React10__default.default.createElement("header", {
         className: cn(headerVariants({
             variant: variant,
             size: size,
             position: position
         }), dark && "bg-gray-900 text-white", className)
-    }, /* @__PURE__ */ React5__default.default.createElement("div", {
+    }, /* @__PURE__ */ React10__default.default.createElement("div", {
         className: cn("w-full mx-auto px-4", containerClasses[maxWidth])
-    }, /* @__PURE__ */ React5__default.default.createElement("div", {
+    }, /* @__PURE__ */ React10__default.default.createElement("div", {
         className: "flex items-center justify-between h-full"
-    }, logo && /* @__PURE__ */ React5__default.default.createElement("div", {
+    }, logo && /* @__PURE__ */ React10__default.default.createElement("div", {
         className: "flex-shrink-0"
-    }, logo), navigation && navigation.length > 0 && /* @__PURE__ */ React5__default.default.createElement("nav", {
+    }, logo), navigation && navigation.length > 0 && /* @__PURE__ */ React10__default.default.createElement("nav", {
         className: "hidden md:flex items-center space-x-4"
     }, navigation.map(function(item, index) {
-        return /* @__PURE__ */ React5__default.default.createElement("div", {
+        return /* @__PURE__ */ React10__default.default.createElement("div", {
             key: index,
             className: "text-sm font-medium"
         }, item);
-    })), actions && actions.length > 0 && /* @__PURE__ */ React5__default.default.createElement("div", {
+    })), actions && actions.length > 0 && /* @__PURE__ */ React10__default.default.createElement("div", {
         className: "flex items-center space-x-4"
     }, actions.map(function(action, index) {
-        return /* @__PURE__ */ React5__default.default.createElement("div", {
+        return /* @__PURE__ */ React10__default.default.createElement("div", {
             key: index
         }, action);
     })))));
 };
 var platforms = {
     twitter: {
-        icon: /* @__PURE__ */ React5__default.default.createElement(fa6.FaXTwitter, {
+        icon: /* @__PURE__ */ React10__default.default.createElement(fa6.FaXTwitter, {
             className: "h-5 w-5"
         }),
         class: "bg-black hover:bg-neutral-800"
     },
     whatsapp: {
-        icon: /* @__PURE__ */ React5__default.default.createElement(fa6.FaWhatsapp, {
+        icon: /* @__PURE__ */ React10__default.default.createElement(fa6.FaWhatsapp, {
             className: "h-5 w-5"
         }),
         class: "bg-[#25D366] hover:bg-[#22bf5b]"
     },
     instagram: {
-        icon: /* @__PURE__ */ React5__default.default.createElement(fa6.FaInstagram, {
+        icon: /* @__PURE__ */ React10__default.default.createElement(fa6.FaInstagram, {
             className: "h-5 w-5"
         }),
         class: "bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] hover:opacity-90"
     },
     discord: {
-        icon: /* @__PURE__ */ React5__default.default.createElement(fa6.FaDiscord, {
+        icon: /* @__PURE__ */ React10__default.default.createElement(fa6.FaDiscord, {
             className: "h-5 w-5"
         }),
         class: "bg-[#5865F2] hover:bg-[#4752c4]"
@@ -375,7 +422,7 @@ var ctaVariants = classVarianceAuthority.cva([
 var Cta = function(param) {
     var platform = param.platform, href = param.href, size = param.size, order = param.order, className = param.className;
     var config = platforms[platform];
-    return /* @__PURE__ */ React5__default.default.createElement("a", {
+    return /* @__PURE__ */ React10__default.default.createElement("a", {
         href: href,
         target: "_blank",
         rel: "noopener noreferrer",
@@ -386,25 +433,156 @@ var Cta = function(param) {
         "aria-label": "Visit our ".concat(platform)
     }, config.icon);
 };
-var Textarea = React5.forwardRef(function(_param, ref) {
+var Textarea = React10.forwardRef(function(_param, ref) {
     var className = _param.className, label = _param.label, helperText = _param.helperText, props = _object_without_properties(_param, [
         "className",
         "label",
         "helperText"
     ]);
-    return /* @__PURE__ */ React5__default.default.createElement("div", {
+    return /* @__PURE__ */ React10__default.default.createElement("div", {
         className: "flex flex-col space-y-1"
-    }, label && /* @__PURE__ */ React5__default.default.createElement("label", {
+    }, label && /* @__PURE__ */ React10__default.default.createElement("label", {
         className: "text-sm font-medium text-gray-700 p-2"
-    }, label), /* @__PURE__ */ React5__default.default.createElement("textarea", _object_spread({
+    }, label), /* @__PURE__ */ React10__default.default.createElement("textarea", _object_spread({
         placeholder: "Type your message here",
         ref: ref,
         className: cn("block w-full rounded-md border border-gray-300 shadow-sm focus:outline-none p-2", className)
-    }, props)), helperText && /* @__PURE__ */ React5__default.default.createElement("p", {
+    }, props)), helperText && /* @__PURE__ */ React10__default.default.createElement("p", {
         className: "text-sm text-gray-500"
     }, helperText));
 });
 Textarea.displayName = "TextAreaTest";
+var Checkbox = React10.forwardRef(function(_param, ref) {
+    var className = _param.className, onChange = _param.onChange, disabled = _param.disabled, props = _object_without_properties(_param, [
+        "className",
+        "onChange",
+        "disabled"
+    ]);
+    var _React10__default_default_useState = _sliced_to_array(React10__default.default.useState(false), 2), isChecked = _React10__default_default_useState[0], setIsChecked = _React10__default_default_useState[1];
+    var handleClick = function() {
+        if (disabled) return;
+        setIsChecked(!isChecked);
+        if (onChange) {
+            var event = {
+                target: {
+                    checked: !isChecked
+                }
+            };
+            onChange(event);
+        }
+    };
+    return /* @__PURE__ */ React10__default.default.createElement("div", {
+        className: cn("relative inline-flex", disabled ? "cursor-not-allowed" : "cursor-pointer"),
+        onClick: handleClick
+    }, /* @__PURE__ */ React10__default.default.createElement("input", _object_spread({
+        type: "checkbox",
+        ref: ref,
+        className: "sr-only",
+        checked: isChecked,
+        disabled: disabled
+    }, props)), /* @__PURE__ */ React10__default.default.createElement("div", {
+        className: cn("h-5 w-5 rounded border transition-all duration-200", "flex items-center justify-center", !disabled && "hover:border-gray-400", !disabled && isChecked && "hover:bg-gray-900", isChecked ? "bg-black border-black text-white" : "border-gray-300 bg-white", disabled && "opacity-50 bg-gray-100", "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black", className)
+    }, isChecked && /* @__PURE__ */ React10__default.default.createElement(fa.FaCheck, {
+        className: "h-3 w-3"
+    })));
+});
+Checkbox.displayName = "Checkbox";
+var Label = function(_param) {
+    var children = _param.children, className = _param.className, htmlFor = _param.htmlFor, props = _object_without_properties(_param, [
+        "children",
+        "className",
+        "htmlFor"
+    ]);
+    return /* @__PURE__ */ React10__default.default.createElement("label", _object_spread({
+        htmlFor: htmlFor,
+        className: cn("block text-sm font-medium text-gray-700", className)
+    }, props), children);
+};
+var cardVariants = classVarianceAuthority.cva("rounded-lg border bg-card text-card-foreground transition-all duration-200", {
+    variants: {
+        variant: {
+            default: "bg-white shadow-sm hover:shadow-md",
+            glass: "bg-white/80 backdrop-blur-sm border-white/20",
+            outline: "border-2 shadow-none hover:bg-accent/5",
+            ghost: "border-none shadow-none hover:bg-accent/5"
+        },
+        size: {
+            sm: "p-4",
+            default: "p-6",
+            lg: "p-8"
+        }
+    },
+    defaultVariants: {
+        variant: "default",
+        size: "default"
+    }
+});
+var Card = React10__default.default.forwardRef(function(_param, ref) {
+    var className = _param.className, variant = _param.variant, size = _param.size, props = _object_without_properties(_param, [
+        "className",
+        "variant",
+        "size"
+    ]);
+    return /* @__PURE__ */ React10__default.default.createElement("div", _object_spread({
+        ref: ref,
+        className: cn(cardVariants({
+            variant: variant,
+            size: size,
+            className: className
+        }))
+    }, props));
+});
+Card.displayName = "Card";
+var CardHeader = React10__default.default.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ React10__default.default.createElement("div", _object_spread({
+        ref: ref,
+        className: cn("flex flex-col gap-1.5 p-6", className)
+    }, props));
+});
+CardHeader.displayName = "CardHeader";
+var CardTitle = React10__default.default.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ React10__default.default.createElement("h3", _object_spread({
+        ref: ref,
+        className: cn("text-lg font-semibold leading-none tracking-tight text-foreground", className)
+    }, props));
+});
+CardTitle.displayName = "CardTitle";
+var CardDescription = React10__default.default.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ React10__default.default.createElement("p", _object_spread({
+        ref: ref,
+        className: cn("text-sm text-muted-foreground leading-relaxed", className)
+    }, props));
+});
+CardDescription.displayName = "CardDescription";
+var CardContent = React10__default.default.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ React10__default.default.createElement("div", _object_spread({
+        ref: ref,
+        className: cn("p-6 pt-0 text-foreground/90 leading-relaxed", className)
+    }, props));
+});
+CardContent.displayName = "CardContent";
+var CardFooter = React10__default.default.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ React10__default.default.createElement("div", _object_spread({
+        ref: ref,
+        className: cn("flex items-center justify-end p-6 pt-0 gap-4", className)
+    }, props));
+});
+CardFooter.displayName = "CardFooter";
 // src/ui/components/index.ts
 var preset = {
     content: [
@@ -417,9 +595,17 @@ var preset = {
 var components_default = preset;
 exports.Badge = Badge;
 exports.Button = Button;
+exports.Card = Card;
+exports.CardContent = CardContent;
+exports.CardDescription = CardDescription;
+exports.CardFooter = CardFooter;
+exports.CardHeader = CardHeader;
+exports.CardTitle = CardTitle;
+exports.Checkbox = Checkbox;
 exports.Cta = Cta;
 exports.HeaderOne = HeaderOne;
 exports.Input = Input;
+exports.Label = Label;
 exports.Separator = Separator;
 exports.Textarea = Textarea;
 exports.badgeVariants = badgeVariants;

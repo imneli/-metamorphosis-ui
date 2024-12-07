@@ -82,6 +82,28 @@ interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement
 }
 declare const Textarea: React.ForwardRefExoticComponent<TextAreaProps & React.RefAttributes<HTMLTextAreaElement>>;
 
+interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
+}
+declare const Checkbox: React.ForwardRefExoticComponent<CheckboxProps & React.RefAttributes<HTMLInputElement>>;
+
+interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
+    htmlFor?: string;
+}
+declare const Label: React.FC<LabelProps>;
+
+declare const cardVariants: (props?: ({
+    variant?: "default" | "outline" | "ghost" | "glass" | null | undefined;
+    size?: "default" | "sm" | "lg" | null | undefined;
+} & class_variance_authority_dist_types.ClassProp) | undefined) => string;
+interface CardProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof cardVariants> {
+}
+declare const Card: React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLDivElement>>;
+declare const CardHeader: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
+declare const CardTitle: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLHeadingElement> & React.RefAttributes<HTMLHeadingElement>>;
+declare const CardDescription: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLParagraphElement> & React.RefAttributes<HTMLParagraphElement>>;
+declare const CardContent: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
+declare const CardFooter: React.ForwardRefExoticComponent<React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>>;
+
 declare function cn(...inputs: ClassValue[]): string;
 
 declare const preset: {
@@ -91,4 +113,4 @@ declare const preset: {
     };
 };
 
-export { Badge, type BadgeProps, Button, type ButtonProps, Cta, type CtaProps, HeaderOne, type HeaderOneProps, Input, type InputProps, Separator, type SeparatorProps, Textarea, badgeVariants, buttonVariants, cn, preset as default, inputVariants };
+export { Badge, type BadgeProps, Button, type ButtonProps, Card, CardContent, CardDescription, CardFooter, CardHeader, type CardProps, CardTitle, Checkbox, Cta, type CtaProps, HeaderOne, type HeaderOneProps, Input, type InputProps, Label, Separator, type SeparatorProps, Textarea, badgeVariants, buttonVariants, cn, preset as default, inputVariants };

@@ -12,9 +12,9 @@
   <a href="https://www.npmjs.com/package/metamorphosis-ui">
     <img src="https://img.shields.io/npm/v/metamorphosis-ui" alt="npm version" />
   </a>
-  <a href="LICENSE">
+  <a href="https://www.npmjs.com/package/metamorphosis-ui">
     <img src="https://img.shields.io/npm/l/metamorphosis-ui" alt="license" />
-  </a>
+</a>
 </div>
 
 ## Features
