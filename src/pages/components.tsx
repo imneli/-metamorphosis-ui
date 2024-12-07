@@ -5,6 +5,7 @@ import { Input } from '@/ui/components/Input';
 import { Cta } from '@/ui/components/Cta';
 import { FiMail, FiLock, FiCheck, FiAlertCircle } from 'react-icons/fi';
 import { TextAreaTest } from '@/tests/components/TextArea.test';
+import { Checkbox } from '@/tests/components/Checkbox.test';
 
 export default function Components() {
   const navigation = [
@@ -122,6 +123,12 @@ export default function Components() {
           helperText='Teste helper'
           label='Teste label'
            />
+        </div>
+
+        <div className="space-y-2">
+          <Checkbox id="terms" />
+          <Checkbox disabled />
+          <Checkbox disabled checked />
         </div>
         </div>
     </div>
