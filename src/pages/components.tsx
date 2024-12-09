@@ -153,7 +153,7 @@ export default function Components() {
           </Card>
         </div>
 
-        <Accordion type="multiple" variant='bordered' collapsible className="w-full max-w-md mx-auto">
+        <Accordion type="single" variant='minimal' collapsible className="w-full max-w-md mx-auto">
             <AccordionItem value="item-1">
               <AccordionTrigger>What is Metamorphosis UI?</AccordionTrigger>
               <AccordionContent>
