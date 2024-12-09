@@ -13,7 +13,7 @@ const AccordionItemContext = createContext<{
 }>({});
 
 // Types
-type AccordionVariant = 'default' | 'bordered' | 'minimal';
+type AccordionVariant = 'default' | 'bordered' | 'minimal' | 'floating' | 'filled';
 type AccordionSize = 'sm' | 'md' | 'lg';
 type AccordionIcon = 'chevron' | 'plus' | 'arrow';
 
@@ -21,9 +21,11 @@ interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: AccordionVariant;
   size?: AccordionSize;
   icon?: AccordionIcon;
-  type?: 'single';
+  iconColor?: string;
+  type?: 'single' | 'multiple';
   value?: string;
   onValueChange?: (value: string) => void;
+  collapsible?: boolean;
 }
 
 interface AccordionItemProps extends Omit<AccordionProps, 'value'> {
@@ -40,16 +42,19 @@ interface AccordionTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonEle
 // Style objects with proper typing
 const variantStyles: Record<AccordionVariant, string> = {
   default: "border border-gray-200 bg-white",
-  bordered: "border-2 border-gray-900",
-  minimal: "border-b border-gray-200"
+  bordered: "border-2 border-gray-900 bg-transparent",
+  minimal: "border-b border-gray-200 rounded-none",
+  floating: "shadow-lg bg-white border-none",
+  filled: "bg-gray-50 border-none"
 } as const;
 
 const sizeStyles: Record<AccordionSize, string> = {
-  sm: "text-sm p-3",
-  md: "text-base p-4",
-  lg: "text-lg p-5"
+  sm: "text-sm py-2 px-4",
+  md: "text-base py-3 px-5",
+  lg: "text-lg py-4 px-6"
 } as const;
 
+// Icon components with proper typing
 type IconComponents = {
   [K in AccordionIcon]: React.ComponentType<{ className?: string }> | {
     open: React.ComponentType<{ className?: string }>;
@@ -110,7 +115,9 @@ export const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps
           className={cn(
             "overflow-hidden transition-all duration-200",
             variantStyles[variant],
+            variant === 'floating' && "rounded-xl",
             variant !== 'minimal' && "rounded-lg",
+            isOpen && variant === 'floating' && "shadow-xl",
             className
           )}
           {...props}
@@ -127,29 +134,36 @@ export const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTri
     const { isOpen, value } = useContext(AccordionItemContext);
     const { onValueChange } = useContext(AccordionContext);
 
-    const renderIcon = () => {
-      const currentIcon = icons[icon];
-      if ('open' in currentIcon && 'closed' in currentIcon) {
-        const Icon = isOpen ? currentIcon.open : currentIcon.closed;
-        return (
-          <Icon 
-            className={cn(
-              "transition-transform duration-200",
-              {
-                'h-4 w-4': size === 'sm',
-                'h-5 w-5': size === 'md',
-                'h-6 w-6': size === 'lg'
-              },
-              iconColor || "text-gray-400"
-            )}
-          />
-        );
-      }
-      
-      // Handle single icon case (like chevron)
-      const Icon = currentIcon as React.ComponentType<{ className?: string }>;
-      return (
-        <Icon 
+    const IconComponent = typeof icons[icon] === 'function' 
+      ? icons[icon] as React.ComponentType<{ className?: string }>
+      : isOpen 
+        ? (icons[icon] as { open: React.ComponentType<{ className?: string }> }).open 
+        : (icons[icon] as { closed: React.ComponentType<{ className?: string }> }).closed;
+
+    return (
+      <button
+        ref={ref}
+        className={cn(
+          "flex w-full items-center justify-between",
+          "transition-all duration-200 ease-in-out",
+          sizeStyles[size],
+          variant === 'minimal' && "hover:bg-transparent",
+          variant === 'filled' && "hover:bg-gray-100",
+          variant === 'floating' && "hover:bg-gray-50",
+          isOpen && variant === 'filled' && "bg-gray-100",
+          className
+        )}
+        onClick={() => onValueChange?.(value!)}
+        {...props}
+      >
+        <span className={cn(
+          "font-medium",
+          variant === 'bordered' && "text-gray-900",
+          size === 'lg' && "font-semibold"
+        )}>
+          {children}
+        </span>
+        <IconComponent
           className={cn(
             "transition-transform duration-200",
             {
@@ -161,25 +175,6 @@ export const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTri
             iconColor || "text-gray-400"
           )}
         />
-      );
-    };
-
-    return (
-      <button
-        ref={ref}
-        className={cn(
-          "flex w-full items-center justify-between",
-          "transition-all duration-200",
-          sizeStyles[size],
-          className
-        )}
-        onClick={() => onValueChange?.(value!)}
-        {...props}
-      >
-        <span className="font-medium">
-          {children}
-        </span>
-        {renderIcon()}
       </button>
     );
   }
