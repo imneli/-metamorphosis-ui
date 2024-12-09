@@ -16,6 +16,8 @@ import {
   CardContent,
 } from "@/ui/components/Card";
 
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/tests/components/Accordion.test';
+
 export default function Components() {
   
 
@@ -150,6 +152,22 @@ export default function Components() {
             </CardFooter>
           </Card>
         </div>
+
+        <Accordion type="single" collapsible className="w-full max-w-md mx-auto">
+            <AccordionItem value="item-1">
+              <AccordionTrigger>What is Metamorphosis UI?</AccordionTrigger>
+              <AccordionContent>
+                A modern and accessible React component library designed to help developers build beautiful interfaces.
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="item-2">
+              <AccordionTrigger>Is it customizable?</AccordionTrigger>
+              <AccordionContent>
+                Yes! All components are built with Tailwind CSS and can be easily customized to match your design system.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
 
         <div className="space-y-2">
           <Checkbox id="terms" />
