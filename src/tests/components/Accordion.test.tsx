@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import { FiChevronDown } from 'react-icons/fi';
+import { FiChevronDown, FiPlus, FiMinus, FiArrowDown, FiArrowRight } from 'react-icons/fi';
 import { cn } from '../../lib/utils';
 
 const AccordionContext = createContext<{
@@ -12,17 +12,62 @@ const AccordionItemContext = createContext<{
   value?: string;
 }>({});
 
+// Types
+type AccordionVariant = 'default' | 'bordered' | 'minimal';
+type AccordionSize = 'sm' | 'md' | 'lg';
+type AccordionIcon = 'chevron' | 'plus' | 'arrow';
+
 interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: 'default' | 'bordered' | 'minimal';
-  type?: 'single' | 'multiple';
+  variant?: AccordionVariant;
+  size?: AccordionSize;
+  icon?: AccordionIcon;
+  type?: 'single';
   value?: string;
   onValueChange?: (value: string) => void;
-  collapsible?: boolean;
 }
 
-interface AccordionItemProps extends React.HTMLAttributes<HTMLDivElement> {
+interface AccordionItemProps extends Omit<AccordionProps, 'value'> {
   value: string;
 }
+
+interface AccordionTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: AccordionVariant;
+  size?: AccordionSize;
+  icon?: AccordionIcon;
+  iconColor?: string;
+}
+
+// Style objects with proper typing
+const variantStyles: Record<AccordionVariant, string> = {
+  default: "border border-gray-200 bg-white",
+  bordered: "border-2 border-gray-900",
+  minimal: "border-b border-gray-200"
+} as const;
+
+const sizeStyles: Record<AccordionSize, string> = {
+  sm: "text-sm p-3",
+  md: "text-base p-4",
+  lg: "text-lg p-5"
+} as const;
+
+type IconComponents = {
+  [K in AccordionIcon]: React.ComponentType<{ className?: string }> | {
+    open: React.ComponentType<{ className?: string }>;
+    closed: React.ComponentType<{ className?: string }>;
+  };
+};
+
+const icons: IconComponents = {
+  chevron: FiChevronDown,
+  plus: {
+    open: FiMinus,
+    closed: FiPlus
+  },
+  arrow: {
+    open: FiArrowDown,
+    closed: FiArrowRight
+  }
+};
 
 export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
   ({ className, children, variant = 'default', type = 'single', value, onValueChange, ...props }, ref) => {
@@ -55,6 +100,7 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
 export const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps>(
   ({ className, children, value, ...props }, ref) => {
     const { value: selectedValue } = useContext(AccordionContext);
+    const { variant = 'default' } = props as AccordionProps;
     const isOpen = selectedValue === value;
 
     return (
@@ -62,9 +108,9 @@ export const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps
         <div
           ref={ref}
           className={cn(
-            "rounded-lg border border-gray-200",
             "overflow-hidden transition-all duration-200",
-            isOpen && "ring-1 ring-gray-200 bg-white shadow-sm",
+            variantStyles[variant],
+            variant !== 'minimal' && "rounded-lg",
             className
           )}
           {...props}
@@ -76,38 +122,64 @@ export const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps
   }
 );
 
-export const AccordionTrigger = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>(
-  ({ className, children, ...props }, ref) => {
+export const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTriggerProps>(
+  ({ className, children, variant = 'default', size = 'md', icon = 'chevron', iconColor, ...props }, ref) => {
     const { isOpen, value } = useContext(AccordionItemContext);
     const { onValueChange } = useContext(AccordionContext);
+
+    const renderIcon = () => {
+      const currentIcon = icons[icon];
+      if ('open' in currentIcon && 'closed' in currentIcon) {
+        const Icon = isOpen ? currentIcon.open : currentIcon.closed;
+        return (
+          <Icon 
+            className={cn(
+              "transition-transform duration-200",
+              {
+                'h-4 w-4': size === 'sm',
+                'h-5 w-5': size === 'md',
+                'h-6 w-6': size === 'lg'
+              },
+              iconColor || "text-gray-400"
+            )}
+          />
+        );
+      }
+      
+      // Handle single icon case (like chevron)
+      const Icon = currentIcon as React.ComponentType<{ className?: string }>;
+      return (
+        <Icon 
+          className={cn(
+            "transition-transform duration-200",
+            {
+              'h-4 w-4': size === 'sm',
+              'h-5 w-5': size === 'md',
+              'h-6 w-6': size === 'lg'
+            },
+            isOpen && icon === 'chevron' && "rotate-180",
+            iconColor || "text-gray-400"
+          )}
+        />
+      );
+    };
 
     return (
       <button
         ref={ref}
         className={cn(
           "flex w-full items-center justify-between",
-          "px-6 py-4 text-left",
-          "text-base font-medium text-gray-900",
-          "transition-all duration-200 ease-in-out",
-          "hover:bg-gray-50",
-          "focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:ring-offset-1",
-          isOpen && "bg-gray-50",
+          "transition-all duration-200",
+          sizeStyles[size],
           className
         )}
         onClick={() => onValueChange?.(value!)}
-        aria-expanded={isOpen}
         {...props}
       >
-        <span className="transition-colors duration-200">
+        <span className="font-medium">
           {children}
         </span>
-        <FiChevronDown
-          className={cn(
-            "h-5 w-5 text-gray-400",
-            "transition-transform duration-300 ease-in-out",
-            isOpen && "rotate-180 transform text-gray-600"
-          )}
-        />
+        {renderIcon()}
       </button>
     );
   }

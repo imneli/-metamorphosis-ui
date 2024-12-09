@@ -153,21 +153,21 @@ export default function Components() {
           </Card>
         </div>
 
-        <Accordion type="single" variant='minimal' collapsible className="w-full max-w-md mx-auto">
-            <AccordionItem value="item-1">
-              <AccordionTrigger>What is Metamorphosis UI?</AccordionTrigger>
-              <AccordionContent>
-                A modern and accessible React component library designed to help developers build beautiful interfaces.
-              </AccordionContent>
-            </AccordionItem>
-            
-            <AccordionItem value="item-2">
-              <AccordionTrigger>Is it customizable?</AccordionTrigger>
-              <AccordionContent>
-                Yes! All components are built with Tailwind CSS and can be easily customized to match your design system.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+        <Accordion>
+          <AccordionItem value="item-1">
+            <AccordionTrigger icon="plus">With plus/minus icon</AccordionTrigger>
+            <AccordionContent>Content here</AccordionContent>
+          </AccordionItem>
+          
+          <AccordionItem value="item-2">
+            <AccordionTrigger icon="arrow">With arrow icon</AccordionTrigger>
+            <AccordionContent>Content here</AccordionContent>
+          </AccordionItem>
+        </Accordion>
+        <AccordionItem value="item-3">
+            <AccordionTrigger icon='chevron'>With chevron icon</AccordionTrigger>
+            <AccordionContent>Content here</AccordionContent>
+          </AccordionItem>
 
         <div className="space-y-2">
           <Checkbox id="terms" />
