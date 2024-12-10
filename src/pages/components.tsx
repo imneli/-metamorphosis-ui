@@ -71,8 +71,8 @@ export default function Components() {
         </div>
 
         <div className="space-x-2">
-            <Cta platform="instagram" href="https://x.com" order={2} size="lg" />
-            <Cta platform="whatsapp" href="https://x.com" order={1} size="lg" />
+            <Cta platform="instagram" href="https://x.com" order={1} size="lg" />
+            <Cta platform="whatsapp" href="https://x.com" order={2} size="lg" />
             <Cta platform="twitter" href="https://x.com" order={3} size="lg" />
         </div>
         <div className='max-w-lg'>
@@ -153,21 +153,22 @@ export default function Components() {
           </Card>
         </div>
 
-        <Accordion>
-          <AccordionItem value="item-1">
-            <AccordionTrigger icon="plus">With plus/minus icon</AccordionTrigger>
-            <AccordionContent>Content here</AccordionContent>
-          </AccordionItem>
-          
-          <AccordionItem value="item-2">
-            <AccordionTrigger icon="arrow">With arrow icon</AccordionTrigger>
-            <AccordionContent>Content here</AccordionContent>
-          </AccordionItem>
-        </Accordion>
-        <AccordionItem value="item-3">
-            <AccordionTrigger icon='chevron'>With chevron icon</AccordionTrigger>
-            <AccordionContent>Content here</AccordionContent>
-          </AccordionItem>
+        <div className='max-w-3xl'>
+          <Accordion>
+            <AccordionItem value="item-1">
+              <AccordionTrigger icon="plus">With plus/minus icon</AccordionTrigger>
+              <AccordionContent>Content here (1)</AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-2">
+              <AccordionTrigger icon="arrow">With arrow icon</AccordionTrigger>
+              <AccordionContent>Content here (2)</AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger icon='chevron'>With chevron icon</AccordionTrigger>
+              <AccordionContent>Content here (3)</AccordionContent>
+            </AccordionItem>
+          </Accordion>
+          </div>
 
         <div className="space-y-2">
           <Checkbox id="terms" />
