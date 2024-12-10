@@ -41,11 +41,11 @@ interface AccordionTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonEle
 
 // Style objects with proper typing
 const variantStyles: Record<AccordionVariant, string> = {
-  default: "border border-gray-200 bg-white",
-  bordered: "border-2 border-gray-900 bg-transparent",
-  minimal: "border-b border-gray-200 rounded-none",
-  floating: "shadow-lg bg-white border-none",
-  filled: "bg-gray-50 border-none"
+  default: "border border-gray-200 bg-white p-2",
+  bordered: "border-2 border-gray-900 bg-transparent p-2",
+  minimal: "border-b border-gray-200 rounded-none p-2",
+  floating: "shadow-lg bg-white border-none p-2",
+  filled: "bg-gray-50 border-none p-2"
 } as const;
 
 const sizeStyles: Record<AccordionSize, string> = {

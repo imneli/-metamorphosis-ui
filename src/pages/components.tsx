@@ -153,8 +153,8 @@ export default function Components() {
           </Card>
         </div>
 
-        <div className='max-w-3xl'>
-          <Accordion>
+        <div className='max-w-4xl'>
+          <Accordion variant='minimal'>
             <AccordionItem value="item-1">
               <AccordionTrigger icon="plus">With plus/minus icon</AccordionTrigger>
               <AccordionContent>Content here (1)</AccordionContent>
