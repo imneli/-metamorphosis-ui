@@ -8,7 +8,7 @@ export * from './Textarea';
 export * from './Checkbox';
 export * from './Label';
 export * from './Card';
-export * from './'
+export * from './Accordion'
 
 export { cn } from '@/lib/utils';
 
